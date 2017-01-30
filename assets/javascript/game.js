@@ -75,33 +75,39 @@ document.onkeyup = function (event){
 		}
 	}	
 	
-	// if the guess limit is equal to 0 alert game over. 
-	if(Hangman.guessLimit === 0){
-		document.getElementById("hangman").src= "assets/images/hangman.gif";
-		window.setTimeout(start(), 10000);
-		Hangman.guessLimit = 10;
-		for(i = 0; i< Hangman.guessedLetters.length ; i++){
-			Hangman.guessedLetters[i] = "";
-		}
-		Hangman.win = 0;
-	}
-	
 	//Decrese guess limit by 1 and print it out to the page 
 	Hangman.guessLimit --;
 	document.getElementById("guessLimit").innerHTML = Hangman.guessLimit;
 
 
+	// if the guess limit is equal to 0 alert game over. 
+	if(Hangman.guessLimit === 0){
+		document.getElementById("hangman").src= "assets/images/hangman.gif";
+		Hangman.guessLimit = 10;
+		document.getElementById("guessLimit").innerHTML = Hangman.guessLimit;
+		Hangman.guessedLetters = [];
+		document.getElementById("letters").innerHTML = Hangman.guessedLetters;
+		Hangman.win = 0;
+		Hangman.answerString = [];
+		document.getElementById("word").innerHTML = Hangman.answerString;
+		//window.setTimeout(start(), 5000);
+		//start();
+
+	}
+
 	// if the string containing the answer equals the current word the user wins.
 	if(Hangman.answerString === Hangman.currentWord){	
 		Hangman.win ++;
 		Hangman.guessLimit = 10;
+		document.getElementById("guessLimit").innerHTML = Hangman.guessLimit;
 		document.getElementById("hangman").src= "assets/images/youwin.jpeg";
 		document.getElementById("win").innerHTML = "Wins: " + Hangman.win; 
-		for(i = 0; i< Hangman.guessedLetters.length ; i++){
-			Hangman.guessedLetters[i] = "";
-		}
-		window.setTimeout(start(), 10000);
-
+		Hangman.guessedLetters = [];
+		document.getElementById("letters").innerHTML = Hangman.guessedLetters;
+		Hangman.answerString = [];
+		document.getElementById("word").innerHTML = Hangman.answerString;
+		//window.setTimeout(start(), 5000);
+		//start();
 	}
 
 
