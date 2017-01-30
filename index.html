@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman game</title>
+	
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	<!-- Bootswatch theme -->
+	<link rel="stylesheet" href="http://bootswatch.com/slate/bootstrap.min.css">
+	
+</head>
+
+<body background="assets/images/hangman.jpg">
+
+
+<div class="container">
+	<div class="row"> 
+		<div class="col-sm-12">
+			<h1> Hangman Game </h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="left" class="col-sm-5">
+			<img id="hangman" class="img-rounded thumbnail" src="assets/images/city.jpeg">
+		</div>
+		<div id = "right" class="col-sm-5">		
+			
+			<h2>Press any key to get started</h2>
+			<br>
+			<h2 id ="win"></h2> 
+			<br>
+			<h2>Current word</h2> 
+			<br>
+			<h2 id ="word"></h2>
+			<br>
+			<h2>Number of guesses remaining</h2> 
+			<h2 id="guessLimit"></h2>
+			<br>
+			<h2>Letters already guessed</h2> 
+			<h4 id ="letters"> </h4>
+			<br><br>
+
+		</div>
+	</div>
+
+
+
+
+</div>
+<!-- Load the script after the other elements to avoid null when using document.getElementById -->
+<script src="assets/javascript/game.js"></script>
+</body>
+</html>
