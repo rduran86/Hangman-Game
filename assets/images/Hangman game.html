@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)file:///Users/ricardoduran1/Desktop/CodingBootcampUCSD/HW/Hangman-Game/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>Hangman game</title>
+	
+	<link rel="stylesheet" type="text/css" href="./Hangman game_files/reset.css">
+	
+	<link rel="stylesheet" type="text/css" href="./Hangman game_files/style.css">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./Hangman game_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+	<!-- Bootswatch theme -->
+	<link rel="stylesheet" href="./Hangman game_files/bootstrap.min(1).css">
+	
+</head>
+
+<body background="./Hangman game_files/hangman.jpg">
+
+
+<div class="container">
+	<div class="row"> 
+		<div class="col-sm-12">
+			<h1> Hangman Game </h1>
+		</div>
+	</div>
+
+	<div class="row">
+		<div id="left" class="col-sm-5">
+			<img id="hangman" class="img-rounded thumbnail" src="./Hangman game_files/city.jpeg">
+		</div>
+		<div id="right" class="col-sm-5">		
+			
+			<h2>Press any key to get started</h2>
+			<br>
+			<h2 id="win">Wins: 0</h2> 
+			<br>
+			<h2>Current word</h2> 
+			<br>
+			<h2 id="word">sa___a___s__</h2>
+			<br>
+			<h2>Number of guesses remaining</h2> 
+			<h2 id="guessLimit">8</h2>
+			<br>
+			<h2>Letters already guessed</h2> 
+			<h4 id="letters">s,a</h4>
+			<br><br>
+
+		</div>
+	</div>
+
+
+
+
+</div>
+<!-- Load the script after the other elements to avoid null when using document.getElementById -->
+<script src="./Hangman game_files/game.js"></script>
+
+</body></html>
