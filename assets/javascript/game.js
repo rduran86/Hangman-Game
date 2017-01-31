@@ -59,8 +59,7 @@ guessedLetters: [],
 currentWord: null,
 answerArray: [],
 answerString: "",
-win: 0,
-continuePlaying: false
+win: 0
 
 
 };
