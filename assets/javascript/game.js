@@ -123,6 +123,7 @@ document.onkeyup = function (event){
 			document.getElementById("hangman").src= "assets/images/hangman.gif";
 			Hangman.win = 0;
 			Hangman.reset();
+			setTimeout(function(){ Hangman.start(); }, 3000);
 			loseSound = new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/lose.mp3")
 			loseSound.play();
 
@@ -133,6 +134,7 @@ document.onkeyup = function (event){
 			document.getElementById("hangman").src= "assets/images/youwin.jpeg";
 			Hangman.win ++;
 			Hangman.reset();
+			setTimeout(function(){ Hangman.start(); }, 3000);
 			var winSound = new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/win.mp3")
 			winSound.play();
 		}
