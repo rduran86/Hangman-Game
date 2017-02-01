@@ -54,7 +54,7 @@ start: function (){
 	document.getElementById("hangman").src= "assets/images/city.jpeg";
 	
 },
-
+userGuess: "",
 guessedLetters: [],	
 currentWord: null,
 answerArray: [],
@@ -77,32 +77,32 @@ document.onkeyup = function (event){
 
 	document.getElementById("hangman").src= "assets/images/city.jpeg";
 	//Get user input and make it lowercase. 
-	var	userGuess = event.key;
+	Hangman.userGuess = event.key;
 	
 	//Check if (userGuess) is part of the ASCII code for lower case letters a to z. 
-	if ((userGuess.match(/^[a-z]$/i)))  {
+	if ((Hangman.userGuess.match(/^[a-z]$/i)))  {
 
 		//Check that the userGuess is not in the already guessed letters 
 		for (i = 0; i< Hangman.guessedLetters.length; i++){
-			if(userGuess === Hangman.guessedLetters[i]){
-				userGuess = null;
+			if(Hangman.userGuess === Hangman.guessedLetters[i]){
+				Hangman.userGuess = null;
 				var badSound = new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/bad.mp3");
    				badSound.play();
 			}
 		}
 		
-		if(userGuess !== null){
+		if(Hangman.userGuess !== null){
 			
 			//Log the pressed keys. 
-			Hangman.guessedLetters.push(userGuess);
+			Hangman.guessedLetters.push(Hangman.userGuess);
 			document.getElementById("letters").innerHTML = Hangman.guessedLetters;				
 		
 			if(Hangman.guessLimit !== 0){
 				//Loop thru the current word and compare to see if letters match user guess. 
 				for(i = 0 ; i < Hangman.currentWord.length ; i++) {			
 						// if the user guess is one the letter on the current word index print the letter. 				
-					if(userGuess === Hangman.currentWord[i]) {
-						Hangman.answerArray[i] = userGuess;	
+					if(Hangman.userGuess === Hangman.currentWord[i]) {
+						Hangman.answerArray[i] = Hangman.userGuess;	
 						Hangman.answerString = Hangman.answerArray.join("");
 						document.getElementById("word").innerHTML = Hangman.answerString;
 						var goodSound = new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/goodbell.mp3")
