@@ -3,7 +3,7 @@
 //Hangman Object  
 var Hangman = {
 
-guessLimit: 10, 
+guessLimit: 20, 
 score: 0, 
 wordList:['Paris','Amsterdam','NewYork','SanFrancisco','Houston','Shanghai','HongKong','MexicoCity','Miami'],
 chosenWord: function (words){
@@ -28,8 +28,7 @@ reset: function (){
 	}
 	//Make a string from the generated array  
 	Hangman.answerString = Hangman.answerArray.join(" ");
-	document.getElementById("word").innerHTML = Hangman.answerString;	
-	// get the word to play against and make it lower case. 
+	document.getElementById("word").innerHTML = Hangman.answerString;	 
 
 },
 
@@ -61,17 +60,12 @@ answerArray: [],
 answerString: "",
 win: 0
 
-
 };
 
 
-//call function to initialize. 
+//call function to initialize the game. 
 Hangman.start();
 
-//if the user lost call start function to initialize again. 
-if(Hangman.continuePlaying == true){
-	Hangman.start();	
-}
 //Listen for user's keystrokes.
 document.onkeyup = function (event){
 
@@ -113,12 +107,12 @@ document.onkeyup = function (event){
 					}
 			}	
 			
-			//Decrese guess limit by 1 and print it out to the page 
+			//Decrease guess limit by 1 and print it out to the page 
 			Hangman.guessLimit --;
 			document.getElementById("guessLimit").innerHTML = Hangman.guessLimit;
 		}
 
-		// if the guess limit is equal to 0 alert game over. 
+		// if the guess limit is equals 0 display hangman gif. 
 		if(Hangman.guessLimit === 0){
 			document.getElementById("hangman").src= "assets/images/hangman.gif";
 			Hangman.win = 0;
