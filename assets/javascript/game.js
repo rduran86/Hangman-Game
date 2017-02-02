@@ -12,10 +12,13 @@ chosenWord: function (words){
 	},
 reset: function (){
 
+	//place default image 
+	document.getElementById("hangman").src= "assets/images/city.jpeg";
 	// get the word to play against and make it lower case. 
 	Hangman.currentWord = Hangman.chosenWord(Hangman.wordList).toLowerCase();
 	console.log(Hangman.currentWord);
 	document.getElementById("win").innerHTML = "Wins: " + Hangman.win; 
+	document.getElementById("loose").innerHTML = "Loose: " + Hangman.loose;
 	Hangman.guessLimit = 10;
 	document.getElementById("guessLimit").innerHTML = Hangman.guessLimit;
 	Hangman.guessedLetters = [];
@@ -29,6 +32,7 @@ reset: function (){
 	//Make a string from the generated array  
 	Hangman.answerString = Hangman.answerArray.join(" ");
 	document.getElementById("word").innerHTML = Hangman.answerString;	 
+
 
 },
 
@@ -48,7 +52,8 @@ start: function (){
 
 	//Initialize html current word, win counter, and guess limit 
 	document.getElementById("word").innerHTML = Hangman.answerString;
-	document.getElementById("win").innerHTML = "Wins: " + Hangman.win; 
+	document.getElementById("win").innerHTML = "Win: " + Hangman.win; 
+	document.getElementById("loose").innerHTML = "Loose: " + Hangman.loose;
 	document.getElementById("guessLimit").innerHTML = Hangman.guessLimit;
 	document.getElementById("hangman").src= "assets/images/city.jpeg";
 	
@@ -58,7 +63,8 @@ guessedLetters: [],
 currentWord: null,
 answerArray: [],
 answerString: "",
-win: 0
+win: 0,
+loose: 0
 
 };
 
@@ -115,9 +121,8 @@ document.onkeyup = function (event){
 		// if the guess limit is equals 0 display hangman gif. 
 		if(Hangman.guessLimit === 0){
 			document.getElementById("hangman").src= "assets/images/hangman.gif";
-			Hangman.win = 0;
-			Hangman.reset();
-			setTimeout(function(){ Hangman.start(); }, 3000);
+			Hangman.loose ++;
+			setTimeout(function(){ Hangman.reset(); }, 2000);
 			loseSound = new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/lose.mp3")
 			loseSound.play();
 
@@ -127,8 +132,7 @@ document.onkeyup = function (event){
 		if(Hangman.answerString === Hangman.currentWord){	
 			document.getElementById("hangman").src= "assets/images/youwin.jpeg";
 			Hangman.win ++;
-			Hangman.reset();
-			setTimeout(function(){ Hangman.start(); }, 3000);
+			setTimeout(function(){ Hangman.reset(); }, 2000);
 			var winSound = new Audio("https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/win.mp3")
 			winSound.play();
 		}

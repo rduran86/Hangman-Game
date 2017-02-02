@@ -29,7 +29,7 @@ h1{
 
 
 
-#win, #guess, #word, #letters, #guessLimit{
+#win, #loose, #guess, #word, #letters, #guessLimit{
 
 	font-family: cursive;
 	font-size: 30px;
